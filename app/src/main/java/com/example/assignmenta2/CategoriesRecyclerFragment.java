@@ -46,7 +46,8 @@ public class CategoriesRecyclerFragment extends Fragment {
 
         final CategoriesAdapter categoriesAdapter = new CategoriesAdapter();
         final RequestQueue requestQueue =  Volley.newRequestQueue(getActivity());
-        String url = "http://jservice.io/api/categories?count=100";
+        int random = (int) (Math.random()* 50 + 1);
+        String url = "http://jservice.io/api/categories?count=100&offset=" + random;
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             public void onResponse(String response) {
                 Gson gson = new Gson();

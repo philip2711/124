@@ -9,10 +9,9 @@ import java.io.Serializable;
 
 @Entity
 public class Category implements Serializable {
-    @PrimaryKey
+
     public int id;
 
-    @SerializedName("title")
     public String title;
 
     public int getId() {
@@ -26,4 +25,14 @@ public class Category implements Serializable {
 
     public void setTitle(String title) {
         this.title = title; }
+
+    public int getClues_count() {
+        return clues_count;
+    }
+
+    public void setClues_count(int clues_count) {
+        this.clues_count = clues_count;
+    }
+
+    public int clues_count;
 }

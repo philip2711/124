@@ -60,15 +60,21 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public static class CategoriesViewHolder extends RecyclerView.ViewHolder{
         public View view;
         public TextView categoryText;
+        public TextView cluesc;
 
         public CategoriesViewHolder(View v) {
             super(v);
             view = v;
             categoryText = v.findViewById(R.id.categoryt);
+            cluesc = v.findViewById(R.id.cluescount);
         }
 
         public void bind(final Category category) {
-            categoryText.setText(category.getTitle());
+
+            String categoryname = category.getTitle();
+            String cap = categoryname.substring(0, 1).toUpperCase() + categoryname.substring(1);
+            categoryText.setText(cap);
+            cluesc.setText("Number of Questions: " + category.getClues_count());
         }
     }
 

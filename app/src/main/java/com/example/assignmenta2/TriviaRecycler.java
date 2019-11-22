@@ -70,9 +70,7 @@ public class TriviaRecycler extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        Intent intent2 = getIntent();
-        int scores = intent2.getIntExtra("test", 0);
-        Toast.makeText(this, String.valueOf(scores), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Your High Score Will be Shown Here", Toast.LENGTH_SHORT).show();
 
     }
 }

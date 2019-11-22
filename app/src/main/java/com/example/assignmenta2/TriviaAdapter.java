@@ -3,12 +3,14 @@ package com.example.assignmenta2;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -59,11 +63,12 @@ public class TriviaAdapter extends RecyclerView.Adapter<TriviaAdapter.TriviaView
         public View view;
         public TextView questionText;
         public TextView answert;
-        public Button answerb;
-        public Button wrongt;
+        public ImageButton answerb;
+        public ImageButton wrongt;
         public TextView wrongp;
         public TextView value;
         public TextView heading;
+        public Image googleview;
 
         public TriviaViewHolder(View v){
             super(v);
@@ -79,7 +84,7 @@ public class TriviaAdapter extends RecyclerView.Adapter<TriviaAdapter.TriviaView
         public void bind(final Trivia trivia) {
 
             questionText.setText(trivia.getQuestion());
-            value.setText("Value: " + Integer.toString(trivia.getValue()));
+            value.setText("Score/Value: " + Integer.toString(trivia.getValue()));
 
             answerb.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -87,8 +92,9 @@ public class TriviaAdapter extends RecyclerView.Adapter<TriviaAdapter.TriviaView
                     String s1 = trivia.getAnswer();
                     String replaceString = s1.replace("<i>","");
                     String s2 = replaceString;
-                    final String replaceString3 = s2.replace("</i>", "");
-                    answert.setText(replaceString3);
+                    String replaceString3 = s2.replace("</i>", "");
+                    String cap = replaceString3.substring(0, 1).toUpperCase() + replaceString3.substring(1);
+                    answert.setText(cap);
                     answert.setTextColor(Color.GREEN);
                     score += trivia.getValue();
                     Toast.makeText(v.getContext(), "Your Current Score Is: " + String.valueOf(score) + "!", Toast.LENGTH_SHORT).show();
@@ -101,10 +107,11 @@ public class TriviaAdapter extends RecyclerView.Adapter<TriviaAdapter.TriviaView
                     String s1 = trivia.getAnswer();
                     String replaceString = s1.replace("<i>","");
                     String s2 = replaceString;
-                    final String replaceString3 = s2.replace("</i>", "");
-                    answert.setText(replaceString3);
+                    String replaceString3 = s2.replace("</i>", "");
+                    String cap = replaceString3.substring(0, 1).toUpperCase() + replaceString3.substring(1);
+                    answert.setText(cap);
                     answert.setTextColor(Color.RED);
-                    wrongp.setText("Still don't understand the right answer? Click here to find out more!");
+                    wrongp.setText("Still don't get the right answer? Click me to find out more!");
                     wrongp.setVisibility(View.VISIBLE);
                     wrongp.setOnClickListener(new View.OnClickListener() {
                         @Override
