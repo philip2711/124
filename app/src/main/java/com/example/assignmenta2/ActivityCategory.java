@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ActivityCategory extends AppCompatActivity{
+public class ActivityCategory extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -61,10 +61,8 @@ public class ActivityCategory extends AppCompatActivity{
                 requestQueue.stop();
             }
         };
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, responseListener,
                 errorListener);
-
         requestQueue.add(stringRequest);
     }
 }

@@ -91,7 +91,7 @@ public class TriviaAdapter extends RecyclerView.Adapter<TriviaAdapter.TriviaView
                     answert.setText(replaceString3);
                     answert.setTextColor(Color.GREEN);
                     score += trivia.getValue();
-                    Toast.makeText(v.getContext(), String.valueOf(score), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Your Current Score Is: " + String.valueOf(score) + "!", Toast.LENGTH_SHORT).show();
                 }
             });
 
